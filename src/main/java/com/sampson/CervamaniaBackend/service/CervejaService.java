@@ -21,4 +21,10 @@ public class CervejaService {
     public Optional<Cerveja> getCervejaById(String id){
         return cervejaRepository.findById(id);
     }
+
+    public List<String> getNomeCervejaByCodigoTipoCerveja(String codigoTipoCerveja){
+        return cervejaRepository.getNomeCervejaByCodigoTipoCerveja(codigoTipoCerveja);
+    }
+
+
 }
