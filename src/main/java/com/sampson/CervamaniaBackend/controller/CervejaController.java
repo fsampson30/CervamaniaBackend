@@ -3,6 +3,7 @@ package com.sampson.CervamaniaBackend.controller;
 import com.sampson.CervamaniaBackend.model.Cerveja;
 import com.sampson.CervamaniaBackend.service.CervejaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +27,12 @@ public class CervejaController {
     }
 
     @GetMapping("/tipocerveja/{id}")
-    public List<String> getNomeCervejaByCodigoTipoCerveja(@PathVariable String id) {
-        return cervejaService.getNomeCervejaByCodigoTipoCerveja(id);
+    public ResponseEntity<List<String>> getNomeCervejaByCodigoTipoCerveja(@PathVariable String id) {
+        List<String> result = cervejaService.getNomeCervejaByCodigoTipoCerveja(id);
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
     }
 
 
