@@ -22,8 +22,12 @@ public class CervejaController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Cerveja> getCervejaById(@PathVariable String id) {
-        return cervejaService.getCervejaById(id);
+    public ResponseEntity<Optional<Cerveja>> getCervejaById(@PathVariable String id) {
+        Optional<Cerveja> cervejaSelecionada = cervejaService.getCervejaById(id);
+        if (!cervejaSelecionada.isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cervejaSelecionada);
     }
 
     @GetMapping("/tipocerveja/{id}")
