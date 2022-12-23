@@ -16,6 +16,9 @@ public interface CervejaRepository extends JpaRepository<Cerveja, String> {
     @Query(value = "SELECT c.NOME_CERVEJA FROM cerveja c WHERE c.CODIGO_PAIS_CERVEJA = ? ORDER BY c.NOME_CERVEJA;", nativeQuery = true)
     public List<String> getNomeCervejaByCodigoPais(String codigoPais);
 
+    @Query(value = "SELECT c.NOME_CERVEJA FROM cerveja c WHERE c.NOME_CERVEJA LIKE ?", nativeQuery = true)
+    public List<String> getNomeCervejaByPartOfName(String namePart);
+
 
 
 }

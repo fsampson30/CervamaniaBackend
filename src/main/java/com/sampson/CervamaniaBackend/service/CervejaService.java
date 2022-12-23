@@ -30,5 +30,9 @@ public class CervejaService {
         return cervejaRepository.getNomeCervejaByCodigoPais(codigoPais);
     }
 
+    public List<String> getNomeCervejaByNamePart(String namePart){
+        return cervejaRepository.getNomeCervejaByPartOfName(namePart);
+    }
+
 
 }

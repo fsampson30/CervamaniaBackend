@@ -44,5 +44,14 @@ public class CervejaController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/pesquisa/{namepart}")
+    public ResponseEntity<List<String>> getNomeCervejaByNamePart(@PathVariable String namepart){
+        List<String> result = cervejaService.getNomeCervejaByNamePart("%"+namepart+"%");
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
+    }
+
 
 }
