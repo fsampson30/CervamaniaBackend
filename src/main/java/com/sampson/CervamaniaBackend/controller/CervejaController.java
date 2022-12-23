@@ -35,5 +35,14 @@ public class CervejaController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/codigopais/{id}")
+    public ResponseEntity<List<String>> getNomeCervejaByCodigoPais(@PathVariable String id){
+        List<String> result = cervejaService.getNomeCervejaByCodigoPais(id);
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
+    }
+
 
 }

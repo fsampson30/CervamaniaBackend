@@ -9,8 +9,12 @@ import java.util.List;
 
 public interface CervejaRepository extends JpaRepository<Cerveja, String> {
 
+
     @Query(value = "SELECT c.NOME_CERVEJA FROM cerveja c WHERE c.CODIGO_TIPO_CERVEJA = ?1", nativeQuery = true)
     public List<String> getNomeCervejaByCodigoTipoCerveja(String codigoTipoCerveja);
+
+    @Query(value = "SELECT c.NOME_CERVEJA FROM cerveja c WHERE c.CODIGO_PAIS_CERVEJA = ? ORDER BY c.NOME_CERVEJA;", nativeQuery = true)
+    public List<String> getNomeCervejaByCodigoPais(String codigoPais);
 
 
 

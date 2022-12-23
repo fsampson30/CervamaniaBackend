@@ -26,5 +26,9 @@ public class CervejaService {
         return cervejaRepository.getNomeCervejaByCodigoTipoCerveja(codigoTipoCerveja);
     }
 
+    public List<String> getNomeCervejaByCodigoPais(String codigoPais){
+        return cervejaRepository.getNomeCervejaByCodigoPais(codigoPais);
+    }
+
 
 }
