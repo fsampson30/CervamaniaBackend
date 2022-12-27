@@ -17,13 +17,13 @@ public class ClassificacaoController {
     @Autowired
     private ClassificacaoService classificacaoService;
 
-    @GetMapping
+   @GetMapping
     public List<Classificacao> getAllCLassificacao(){
         return classificacaoService.getAllClassificacao();
     }
 
     @GetMapping("/notas")
-    public List<Double> getAllClassificaoNotas(){
+    public List<ClassificacaoDto> getAllClassificaoNotas(){
         return classificacaoService.getAllClassificacaoNotas();
     }
 }

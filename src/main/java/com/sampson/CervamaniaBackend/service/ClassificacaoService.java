@@ -18,7 +18,7 @@ public class ClassificacaoService {
         return classificacaoRepository.findAll();
     }
 
-    public List<Double> getAllClassificacaoNotas(){
-        return classificacaoRepository.getAllClassificacaoNotas();
+    public List<ClassificacaoDto> getAllClassificacaoNotas(){
+        return classificacaoRepository.getClassificacaoDto();
     }
 }

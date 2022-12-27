@@ -1,15 +1,15 @@
 package com.sampson.CervamaniaBackend.dto;
 
 
-import javax.persistence.Column;
-
-
 public class ClassificacaoDto {
 
-    @Column(name = "NOME_CERVEJA")
     private String nomeCerveja;
-    @Column(name = "NOTA")
     private double nota;
+
+    public ClassificacaoDto(String nomeCerveja, double nota) {
+        this.nomeCerveja = nomeCerveja;
+        this.nota = nota;
+    }
 
     public String getNomeCerveja() {
         return nomeCerveja;
