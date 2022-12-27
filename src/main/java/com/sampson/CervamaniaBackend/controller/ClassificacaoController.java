@@ -1,5 +1,6 @@
 package com.sampson.CervamaniaBackend.controller;
 
+import com.sampson.CervamaniaBackend.dto.ClassificacaoDto;
 import com.sampson.CervamaniaBackend.model.Classificacao;
 import com.sampson.CervamaniaBackend.service.ClassificacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,10 @@ public class ClassificacaoController {
     @GetMapping
     public List<Classificacao> getAllCLassificacao(){
         return classificacaoService.getAllClassificacao();
+    }
+
+    @GetMapping("/notas")
+    public List<Double> getAllClassificaoNotas(){
+        return classificacaoService.getAllClassificacaoNotas();
     }
 }
