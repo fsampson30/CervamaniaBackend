@@ -19,7 +19,9 @@ import javax.persistence.*;
 )
 @NamedNativeQuery(
         name = "Classificacao.getClassificacaoDto",
-        query = "SELECT c.NOME_CERVEJA as nomeCerveja , ROUND(SUM(cl.CLASSIFICACAO) / COUNT(cl.CODIGO_CERVEJA),2)  as nota FROM classificacao cl JOIN cerveja c ON cl.CODIGO_CERVEJA = c.CODIGO_CERVEJA GROUP BY cl.CODIGO_CERVEJA ORDER BY 2 DESC, c.NOME_CERVEJA",
+        query = "SELECT c.NOME_CERVEJA as nomeCerveja , ROUND(SUM(cl.CLASSIFICACAO) / COUNT(cl.CODIGO_CERVEJA),2)  " +
+                "as nota FROM classificacao cl JOIN cerveja c ON cl.CODIGO_CERVEJA = c.CODIGO_CERVEJA GROUP BY " +
+                "cl.CODIGO_CERVEJA ORDER BY 2 DESC, c.NOME_CERVEJA",
         resultSetMapping = "ratingsMapping"
 )
 @Table(name = "classificacao")

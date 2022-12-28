@@ -12,4 +12,7 @@ public interface ClassificacaoRepository extends JpaRepository<Classificacao, In
 
     @Query(nativeQuery = true)
     public List<ClassificacaoDto> getClassificacaoDto();
+
+    @Query(value = "SELECT cl.COMENTARIOS from classificacao cl where cl.CODIGO_CERVEJA = ? and cl.COMENTARIOS <> ''" ,nativeQuery = true)
+    public List<String> getComentariosByCodigoCerveja(String codigoCerveja);
 }

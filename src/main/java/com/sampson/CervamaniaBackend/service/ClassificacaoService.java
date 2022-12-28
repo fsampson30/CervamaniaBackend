@@ -21,4 +21,8 @@ public class ClassificacaoService {
     public List<ClassificacaoDto> getAllClassificacaoNotas(){
         return classificacaoRepository.getClassificacaoDto();
     }
+
+    public List<String> getComentariosByCodigoCerveja(String codigoCerveja){
+        return classificacaoRepository.getComentariosByCodigoCerveja(codigoCerveja);
+    }
 }
