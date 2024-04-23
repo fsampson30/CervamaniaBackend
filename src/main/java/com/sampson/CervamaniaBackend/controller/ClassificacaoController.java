@@ -26,28 +26,28 @@ public class ClassificacaoController {
     @Autowired
     CervejaService cervejaService;
 
-   @GetMapping
-    public List<Classificacao> getAllCLassificacao(){
+    @GetMapping
+    public List<Classificacao> getAllCLassificacao() {
         return classificacaoService.getAllClassificacao();
     }
 
     @GetMapping("/notas")
-    public List<ClassificacaoDto> getAllClassificaoNotas(){
+    public List<ClassificacaoDto> getAllClassificaoNotas() {
         return classificacaoService.getAllClassificacaoNotas();
     }
 
     @GetMapping("/comentarios/{id}")
-    public ResponseEntity<List<String>> getComentariosByCodigoCerveja(@PathVariable String id){
+    public ResponseEntity<List<String>> getComentariosByCodigoCerveja(@PathVariable String id) {
         List<String> comentarios = new ArrayList<>();
-       Optional<Cerveja> buscaCodigo = cervejaService.getCervejaById(id);
-       if (buscaCodigo.isPresent()) {
-            comentarios =  classificacaoService.getComentariosByCodigoCerveja(id);
-       } else {
-           return ResponseEntity.notFound().build();
-       }
-       if (comentarios.isEmpty()) {
-           return ResponseEntity.noContent().build();
-       }
-       return ResponseEntity.ok(comentarios);
+        Optional<Cerveja> buscaCodigo = cervejaService.getCervejaById(id);
+        if (buscaCodigo.isPresent()) {
+            comentarios = classificacaoService.getComentariosByCodigoCerveja(id);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+        if (comentarios.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(comentarios);
     }
 }
