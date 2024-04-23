@@ -27,12 +27,12 @@ public class ClassificacaoController {
     CervejaService cervejaService;
 
     @GetMapping
-    public List<Classificacao> getAllCLassificacao() {
+    public List<Classificacao> getAllRatings() {
         return classificacaoService.getAllClassificacao();
     }
 
     @GetMapping("/notas")
-    public List<ClassificacaoDto> getAllClassificaoNotas() {
+    public List<ClassificacaoDto> getAllRatingNotes() {
         return classificacaoService.getAllClassificacaoNotas();
     }
 
