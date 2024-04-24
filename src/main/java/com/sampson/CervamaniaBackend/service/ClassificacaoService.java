@@ -25,4 +25,5 @@ public class ClassificacaoService {
     public List<String> getComentariosByCodigoCerveja(String codigoCerveja){
         return classificacaoRepository.getComentariosByCodigoCerveja(codigoCerveja);
     }
+
 }
